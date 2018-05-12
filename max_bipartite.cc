@@ -52,7 +52,6 @@ bool bpm(int m, int match[], bool matched[]){
 				return true;
 			}
 			matched[i] = false;
-			}
 		}
 	}
 	return false;
