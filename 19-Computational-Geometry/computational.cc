@@ -35,6 +35,8 @@ double pt_line_dist(pt l1, pt p2, pt a);
 int cross_product(line_seg, line_seg);
 int dot_product(line_seg l, line_seg l2);
 double pt_line_seg_dist(line_seg l, pt p);
+
+// >0 ccw, <0 cw, = 0 line
 int orient(pt &a, pt &b, pt &c){
 	return (a.x - c.x)*(a.y - b.y) - (a.x - b.x)*(a.y - c.y);
 }
@@ -46,6 +48,7 @@ int main(){
 	
 	line_seg l(p1, p3);
 	line_seg l2(p1, p2);
+	cout << orient(p1, p2, p3) << endl;
 	cout << cross_product(l, l2) << endl;
 	cout << pt_line_dist(p1, p3, p2) << endl;
 	cout << pt_line_seg_dist(l, p2) << endl;
