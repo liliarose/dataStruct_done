@@ -28,54 +28,54 @@ int lcm(int a, int b);
 void keyGen(int p, int q);
 
 int main() {
-	//modp(2, 2, 6);
-	keyGen(23, 89);
-	int m = 12;
-	int pub_m = modp(m, e, n);
-	int prv_m = modp(pub_m, d, n);
-	cout << "message" << endl;
-	cout << m << endl;
-	cout << pub_m << endl;
-	cout << prv_m << endl;
+    //modp(2, 2, 6);
+    keyGen(23, 89);
+    int m = 12;
+    int pub_m = modp(m, e, n);
+    int prv_m = modp(pub_m, d, n);
+    cout << "message" << endl;
+    cout << m << endl;
+    cout << pub_m << endl;
+    cout << prv_m << endl;
 }
 /*
 int crypt(int m, int d, int n){
-	for(int i `)
+    for(int i `)
 }
 */
 
 void keyGen(int p, int q){
-	n = p * q;
-	int tt= lcm(p-1, q-1);
-	for(e = 3; e < tt; e++){
-		if(gcf(e, tt) == 1) break;
-	}
-	for(d = e+1; d < tt; d++){
-		//cout << (e*d)%tt << endl;
-		if((e*d)%tt == 1) break;
-	}
-	cout << "n: " << n << "\ntt: " << tt << "\ne: " << e << "\nd: " << d << endl;
+    n = p * q;
+    int tt= lcm(p-1, q-1);
+    for(e = 3; e < tt; e++){
+        if(gcf(e, tt) == 1) break;
+    }
+    for(d = e+1; d < tt; d++){
+        //cout << (e*d)%tt << endl;
+        if((e*d)%tt == 1) break;
+    }
+    cout << "n: " << n << "\ntt: " << tt << "\ne: " << e << "\nd: " << d << endl;
 }
 
 int modp(int b, int pow, int n){
-	int t = 1;
-	for(int i = 0; i < pow; i++){
-		t *= b;
-		t%=n;
-	}
-	//cout << t << endl;
-	return t;
+    int t = 1;
+    for(int i = 0; i < pow; i++){
+        t *= b;
+        t%=n;
+    }
+    //cout << t << endl;
+    return t;
 }
 
 int lcm(int a, int b){
-	int t = gcf(a, b);
-	//cout << "t: " << t << endl;
-	return a*b/t;
+    int t = gcf(a, b);
+    //cout << "t: " << t << endl;
+    return a*b/t;
 }
 int gcf(int a, int b){
-	//cout << a << "%" << b << " " << a % b << endl;
-	if(a % b == 0) return b;
-	return gcf(b, a%b);
+    //cout << a << "%" << b << " " << a % b << endl;
+    if(a % b == 0) return b;
+    return gcf(b, a%b);
 }
 
 
