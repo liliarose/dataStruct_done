@@ -62,8 +62,9 @@ int dot_product(line_seg l, line_seg l2){
 
 double pt_line_seg_dist(line_seg l, pt p){
     line_seg l1(l.start, p);
-    line_seg l2(l.end, p);
-    if(dot_product(l1, l) < 0){
+    int dpa = dot_product(l1, l);
+    //line_seg l2(l.end, p);
+    if(dpa< 0){
         return dist(l.start, p);
     } else if(dot_product(l1, l) < 0){
         return dist(l.end, p);
